@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Getting Started Using SnS To Connect Lambdas | Proactivity</title>
+  <title>Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas) | Proactivity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Source
-Getting started with SNS (use SnS to connect lambdas)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect">
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Getting Started Using SnS To Connect Lambdas">
-<meta property="og:url" content="http://prokriya.us/2016/11/27/getting-started-using-SnS-to-connect-lambdas/index.html">
+<meta property="og:title" content="Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)">
+<meta property="og:url" content="http://prokriya.us/archives/2016/11/27/getting-started-using-SnS-to-connect-lambdas/index.html">
 <meta property="og:site_name" content="Proactivity">
 <meta property="og:description" content="Source
-Getting started with SNS (use SnS to connect lambdas)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect">
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
 <meta property="og:image" content="https://i.gyazo.com/90f558c4ae185c4982151c9ef3822fd2.png">
-<meta property="og:updated_time" content="2016-11-27T10:15:02.000Z">
+<meta property="og:updated_time" content="2016-11-27T11:39:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Getting Started Using SnS To Connect Lambdas">
+<meta name="twitter:title" content="Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)">
 <meta name="twitter:description" content="Source
-Getting started with SNS (use SnS to connect lambdas)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect">
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
 <meta name="twitter:image" content="https://i.gyazo.com/90f558c4ae185c4982151c9ef3822fd2.png">
   
     <link rel="alternate" href="/atom.xml" title="Proactivity" type="application/atom+xml">
@@ -59,7 +59,7 @@ Getting started with SNS (use SnS to connect lambdas)This post covers an introdu
         
   
     <h1 class="article-title" itemprop="name">
-      Getting Started Using SnS To Connect Lambdas
+      Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)
     </h1>
   
 
@@ -68,7 +68,7 @@ Getting started with SNS (use SnS to connect lambdas)This post covers an introdu
     <div class="article-entry typo" itemprop="articleBody">
       
         <p><a href="http://prokriya.us/2016/11/13/Getting-started-using-SnS-to-connect-lambdas/" title="Permalink to Getting started with AWS SNS (use SnS to connect lambdas)">Source</a></p>
-<h2 id="Getting-started-with-SNS-use-SnS-to-connect-lambdas"><a href="#Getting-started-with-SNS-use-SnS-to-connect-lambdas" class="headerlink" title="Getting started with SNS (use SnS to connect lambdas)"></a>Getting started with SNS (use SnS to connect lambdas)</h2><p>This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the execution of the second lambda.</p>
+<p>This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the execution of the second lambda.</p>
 <p><a href="http://prokriya.us/2016/11/10/Getting-started-with-aws-lambda/">_aws-lambda getting started &amp; example</a>_</p>
 <hr>
 <h2 id="What-is-AWS-SNS"><a href="#What-is-AWS-SNS" class="headerlink" title="What is AWS SNS ?"></a>What is AWS SNS ?</h2><p>Best described <a href="https://aws.amazon.com/sns/" target="_blank" rel="external">here</a> as <code>Fully managed and highly scalable push messaging</code>. I have understood(being a developer) as - <code>It is the good old</code>pub-sub<code>for your AWS infrastructure services</code>. What works for SNS as a lucrative offering is -</p>
@@ -79,12 +79,12 @@ Getting started with SNS (use SnS to connect lambdas)This post covers an introdu
 <li>Also usable for Push notifications (we’ll cover this in [SNS part two][3])</li>
 </ul>
 <p>Serverless is an MIT open-source project, actively maintained by a vibrant and engaged community of developers.<br><a href="https://serverless.com/framework/" title="Permalink to Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more" target="_blank" rel="external">AWS Lambda</a></p>
-<p>Serverless is tragetting a broader vision/concept - to become a framework for different FaaS providers (not just AWS Lambda) </p>
+<p>Serverless is tragetting a broader vision/concept - to become a framework for different FaaS providers (not just AWS Lambda)</p>
 <p>Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more</p>
 <p>For more verbose information on <a href="http://prokriya.us/2016/11/09/Getting-started-with-serverless/">Serverless</a></p>
 <h3 id="The-Code-I-use-to-explain-the-setup"><a href="#The-Code-I-use-to-explain-the-setup" class="headerlink" title="The Code I use to explain the setup"></a>The Code I use to explain the setup</h3><p>The code I’m using is at<br>This is mostly work altready done by at<br>Feel free to extend the chain</p>
 <h2 id="Steps-to-using-SNS-AWS-Lambdas-with-serverless"><a href="#Steps-to-using-SNS-AWS-Lambdas-with-serverless" class="headerlink" title="Steps to using SNS + AWS Lambdas with serverless"></a>Steps to using SNS + AWS Lambdas with serverless</h2><ul>
-<li>install serverless globally <code>npm i -g serverless</code><br>Make sure that you use Serverless v1.(have serverless installed globally)<br>Stay on Node version 4.3 </li>
+<li>install serverless globally <code>npm i -g serverless</code><br>Make sure that you use Serverless v1.(have serverless installed globally)<br>Stay on Node version 4.3</li>
 </ul>
 <ol>
 <li>Run <code>serverless install --url https://github.com/saurshaz/serverless-sns-lambda-chaining</code> to install the service in your current working directory</li>
@@ -101,7 +101,7 @@ Getting started with SNS (use SnS to connect lambdas)This post covers an introdu
 <li>Lambda function deployment package size (.zip/.jar file) 50 MB</li>
 <li>Size of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) 250 MB<br><a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank" rel="external"> AWS limitations </a></li>
 </ul>
-<p>[3]: </p>
+<p>[3]:</p>
 
       
     </div>
@@ -128,7 +128,7 @@ Getting started with SNS (use SnS to connect lambdas)This post covers an introdu
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Getting Started Using SnS To Send Push Notifications
+          Getting Started Using SnS To Send Push Notifications (use SnS for push notifications)
         
       </div>
     </a>

@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Getting Started Using SnS To Send Push Notifications | Proactivity</title>
+  <title>Getting Started Using SnS To Send Push Notifications (use SnS for push notifications) | Proactivity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Source
-Getting started with AWS SNS (use SnS for push notifications)Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS).">
+Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Getting Started Using SnS To Send Push Notifications">
-<meta property="og:url" content="http://prokriya.us/2016/11/27/getting-started-using-SnS-to-send-push-notifications/index.html">
+<meta property="og:title" content="Getting Started Using SnS To Send Push Notifications (use SnS for push notifications)">
+<meta property="og:url" content="http://prokriya.us/archives/2016/11/27/getting-started-using-SnS-to-send-push-notifications/index.html">
 <meta property="og:site_name" content="Proactivity">
 <meta property="og:description" content="Source
-Getting started with AWS SNS (use SnS for push notifications)Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS).">
+Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to con">
 <meta property="og:image" content="https://i.vimeocdn.com/video/596591985.webp?mw=640&mh=360">
 <meta property="og:image" content="https://i.gyazo.com/e88c229ce1f9e44f8aaaa3c414c79c24.png">
-<meta property="og:updated_time" content="2016-11-27T09:52:51.000Z">
+<meta property="og:updated_time" content="2016-11-27T11:39:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Getting Started Using SnS To Send Push Notifications">
+<meta name="twitter:title" content="Getting Started Using SnS To Send Push Notifications (use SnS for push notifications)">
 <meta name="twitter:description" content="Source
-Getting started with AWS SNS (use SnS for push notifications)Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS).">
+Getting started with SNS (use SnS for push notifications)This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to con">
 <meta name="twitter:image" content="https://i.vimeocdn.com/video/596591985.webp?mw=640&mh=360">
   
     <link rel="alternate" href="/atom.xml" title="Proactivity" type="application/atom+xml">
@@ -60,7 +60,7 @@ Getting started with AWS SNS (use SnS for push notifications)Getting started wit
         
   
     <h1 class="article-title" itemprop="name">
-      Getting Started Using SnS To Send Push Notifications
+      Getting Started Using SnS To Send Push Notifications (use SnS for push notifications)
     </h1>
   
 
@@ -69,7 +69,7 @@ Getting started with AWS SNS (use SnS for push notifications)Getting started wit
     <div class="article-entry typo" itemprop="articleBody">
       
         <p><a href="http://prokriya.us/2016/11/13/Getting-started-using-SnS-to-send-push-notifications/" title="Permalink to Getting started with AWS SNS (use SnS for push notifications)">Source</a></p>
-<h1 id="Getting-started-with-AWS-SNS-use-SnS-for-push-notifications"><a href="#Getting-started-with-AWS-SNS-use-SnS-for-push-notifications" class="headerlink" title="Getting started with AWS SNS (use SnS for push notifications)"></a>Getting started with AWS SNS (use SnS for push notifications)</h1><h2 id="Getting-started-with-SNS-use-SnS-for-push-notifications"><a href="#Getting-started-with-SNS-use-SnS-for-push-notifications" class="headerlink" title="Getting started with SNS (use SnS for push notifications)"></a>Getting started with SNS (use SnS for push notifications)</h2><p>This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the execution of the second lambda.</p>
+<h2 id="Getting-started-with-SNS-use-SnS-for-push-notifications"><a href="#Getting-started-with-SNS-use-SnS-for-push-notifications" class="headerlink" title="Getting started with SNS (use SnS for push notifications)"></a>Getting started with SNS (use SnS for push notifications)</h2><p>This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the execution of the second lambda.</p>
 <p><a href="http://prokriya.us/2016/11/10/Getting-started-with-aws-lambda/">_aws-lambda getting started &amp; example</a>_</p>
 <hr>
 <h2 id="What-is-AWS-SNS"><a href="#What-is-AWS-SNS" class="headerlink" title="What is AWS SNS ?"></a>What is AWS SNS ?</h2><p>Best described <a href="https://aws.amazon.com/sns/" target="_blank" rel="external">here</a> as <code>Fully managed and highly scalable push messaging</code>. I have understood(being a developer) as - <code>It is the good old</code>pub-sub<code>for your AWS infrastructure services</code>. What works for SNS as a lucrative offering is -</p>
@@ -80,7 +80,7 @@ Getting started with AWS SNS (use SnS for push notifications)Getting started wit
 <li>Also usable for Push notifications (we’ll cover this in [SNS part two][3])</li>
 </ul>
 <p>Serverless is an MIT open-source project, actively maintained by a vibrant and engaged community of developers.<br><a href="https://serverless.com/framework/" title="Permalink to Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more" target="_blank" rel="external">Jump Here</a></p>
-<p>Serverless is tragetting a broader vision/concept - to become a framework for different FaaS providers (not just AWS Lambda) </p>
+<p>Serverless is tragetting a broader vision/concept - to become a framework for different FaaS providers (not just AWS Lambda)</p>
 <h2 id="Serverless-Framework-Build-applications-on-AWS-Lambda-Google-CloudFunctions-Azure-Functions-AWS-Flourish-and-more"><a href="#Serverless-Framework-Build-applications-on-AWS-Lambda-Google-CloudFunctions-Azure-Functions-AWS-Flourish-and-more" class="headerlink" title="Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more"></a>Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more</h2><p><img src="https://i.vimeocdn.com/video/596591985.webp?mw=640&amp;mh=360" alt="Getting Started with Serverless"></p>
 <h2 id="Serverless-As-Defined-By-Serverless-Folks-Here"><a href="#Serverless-As-Defined-By-Serverless-Folks-Here" class="headerlink" title="Serverless As Defined By Serverless Folks (Here)"></a>Serverless As Defined By Serverless Folks (<a href="https://serverless.com/framework/docs/providers/aws/guide/intro/" target="_blank" rel="external">Here</a>)</h2><p>The Serverless Framework helps you develop and deploy your AWS Lambda functions, along with the AWS infrastructure resources they require. It’s a CLI that offers structure, automation and best practices out-of-the-box, allowing you to focus on building sophisticated, event-driven, serverless architectures, comprised of Functions and Events.</p>
 <p>A few things the Serverless Framework does differently than a normal application Framework are:</p>
@@ -110,7 +110,7 @@ Getting started with AWS SNS (use SnS for push notifications)Getting started wit
 <li>Lambda function deployment package size (.zip/.jar file) 50 MB</li>
 <li>Size of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) 250 MB<br><a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank" rel="external"> AWS limitations </a></li>
 </ul>
-<p>[3]: </p>
+<p>[3]:</p>
 
       
     </div>
@@ -145,7 +145,7 @@ Getting started with AWS SNS (use SnS for push notifications)Getting started wit
   
     <a href="/2016/11/27/getting-started-using-SnS-to-connect-lambdas/" id="article-nav-older" class="article-nav-link-wrap older">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Getting Started Using SnS To Connect Lambdas</div>
+      <div class="article-nav-title">Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)</div>
     </a>
   
 </nav>

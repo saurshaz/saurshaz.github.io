@@ -9,12 +9,12 @@
 IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possible unit of execution in any functional natured programming language. A stateless function has existed as a statele">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Getting started with aws lambda">
-<meta property="og:url" content="http://prokriya.us/2016/11/27/getting-started-with-aws-lambda/index.html">
+<meta property="og:url" content="http://prokriya.us/archives/2016/11/27/getting-started-with-aws-lambda/index.html">
 <meta property="og:site_name" content="Proactivity">
 <meta property="og:description" content="Source
 IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possible unit of execution in any functional natured programming language. A stateless function has existed as a statele">
 <meta property="og:image" content="https://i.gyazo.com/29b3d3f55b912340c3bc0e5e4e005cf5.png">
-<meta property="og:updated_time" content="2016-11-27T09:57:29.000Z">
+<meta property="og:updated_time" content="2016-11-27T11:39:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting started with aws lambda">
 <meta name="twitter:description" content="Source
@@ -78,20 +78,20 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 <ul>
 <li><p><a href="http://prokriya.us/2016/11/09/Getting-started-with-AWS-IAM/">setup AWS IAM role</a><br>– make sure you select Lambda service access for this role<br>– create a new <code>~/.aws/credentials</code> file (if one is not already present)<br>– Put in you access key and security key in there (like below)</p>
 <pre><code>| ----- |
-</code></pre><p>  | </p>
+</code></pre><p>  |</p>
 <pre><code>1
 </code></pre><p>  2</p>
 <p>  3</p>
-<p>| </p>
+<p>|</p>
 <pre><code>[default]
 </code></pre><p>  aws_access_key_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
 <p>  aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-<p>| </p>
+<p>|</p>
 </li>
 </ul>
 <p>`</p>
 <p>– Copy the path starting with <code>arn://</code> (role url) for your newly created role into your <code>lambdaenv.json</code> file in the root directory of the example project. It will look like below.</p>
-<p>| —– |<br>| </p>
+<p>| —– |<br>|</p>
 <pre><code>    1
 
 2
@@ -99,7 +99,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 3
 
 4
-</code></pre><p> | </p>
+</code></pre><p> |</p>
 <pre><code>    {
 
     &quot;Role&quot; : &quot;arn:aws:iam::XXXXXXXXXX:role/XXXXXXX&quot;,
@@ -107,13 +107,13 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
     &quot;Region&quot; : &quot;eu-west-1&quot;
 
 }
-</code></pre><p> | </p>
+</code></pre><p> |</p>
 <ul>
 <li>Now the example project has the lambda function logic contained within <code>src/index.js</code> file. Feel free to change it once it is seen working</li>
 <li>What is now needed is to push the code sitting on your system onto AWS cloud (to be available to be executed as desired, on demand). <code>gulp deploy</code> does that. The <code>gulpfile.js</code> is the gulp file which has a lot of tasks. the <code>deploy</code> one meant for this purpose only(sending code over to AWS lambda infrastructure)</li>
 <li><p>Running <code>gulp deploy</code> has done what you wanted. To make sure go to your AWS dev console - You’ll see the function you uploaded available to you. You could infact have created it right from this place also :-). Now you have the choice. Being a developer the way explained is recommended and preferred by/for me.<br><img src="https://i.gyazo.com/29b3d3f55b912340c3bc0e5e4e005cf5.png" alt="AWS Lambda Screen Listing Functions Created"></p>
 </li>
-<li><p>Go ahead run the function against test data you can change from this screen. Now your logic is in cloud (Lambda). You can now call this from any mobile app or hook it up with any webhook or any event to be called. Lambda does not care. </p>
+<li><p>Go ahead run the function against test data you can change from this screen. Now your logic is in cloud (Lambda). You can now call this from any mobile app or hook it up with any webhook or any event to be called. Lambda does not care.</p>
 </li>
 </ul>
 <p>In the next part, We’ll look at integrating this with a Riot App runnable on your mobile device or web.</p>
