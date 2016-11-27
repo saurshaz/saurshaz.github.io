@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Getting Started With Hexo Blogging and  Markdown | Proactivity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started With Hexo Blogging and  Markdown">
+<meta property="og:url" content="http://prokriya.us/2016/11/27/riotjs-a-brief-introduction/index.html">
+<meta property="og:site_name" content="Proactivity">
+<meta property="og:description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+<meta property="og:updated_time" content="2016-11-27T08:50:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Getting Started With Hexo Blogging and  Markdown">
+<meta name="twitter:description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+  
+    <link rel="alternate" href="/atom.xml" title="Proactivity" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/typing.css">
+</head>
+
+  
+    <body>
+  
+      <div id="container" class="container">
+        <article id="post-riotjs-a-brief-introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+  <nav id="main-nav" class="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Getting Started With Hexo Blogging and  Markdown
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h2 id="What-is-RiotJS"><a href="#What-is-RiotJS" class="headerlink" title="What is RiotJS ?"></a>What is RiotJS ?</h2><h2 id="Small-Answer"><a href="#Small-Answer" class="headerlink" title="Small Answer"></a>Small Answer</h2><p>Another front-end framework for building your view layer (just like <a href="https://github.com/facebook/react/" target="_blank" rel="external">React</a> and <a href="http://www.polymer-project.org/" target="_blank" rel="external">Polymer</a>)</p>
+<h2 id="More-Comprehensive-Answer"><a href="#More-Comprehensive-Answer" class="headerlink" title="More Comprehensive Answer"></a>More Comprehensive Answer</h2><p>So, if you are a web developer working on front-end - In all probabilty - there are way too many frameworks you would’ve seen (or even worked upon)<br>There are MVVM/MVC frameworks like BackboneJS, Knockout, spine, Angular, VueJS and many others.</p>
+<p>Most of these manage the entire part of the front-end stack - The Javascript logic as well as the templating and routing (Angular does a bit more, in fact a little too much for certain pro’s likings)</p>
+<p>However, there are a second type of frameworks (those that focus only on view layer management)<br>Off late have appeared a components based views building ideology with <a href="http://webcomponents.org/" target="_blank" rel="external">web components</a> and frameworks like Polymer endorsed that concept beautifully.</p>
+<p>Then came the revolution with Facebook taking an aggressive open-source rout starting with React. Why this is termed as a revolution is because of the community &amp; adoption rates it has built in such a short period. The philosophy with React too has been modular view building. However the approach has differed with the DOM manipulations always going through <a href="http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/" target="_blank" rel="external">Virtual-DOM</a>.</p>
+<p>So, Riot is again a view managing framework that builds on concepts popularised by both Polymer and React.<br>It takes a midway between the Polymer and React paths.<br>It follows a more polymer component like syntax (which is music to eyes full of JSX experience).<br>But for DOM manipulations it goes a Virtual DOM route(like React) with a different diffing engine(open-sourced) and much smaller than React’s.</p>
+<h2 id="How-it’s-different-from-others-pros-cons"><a href="#How-it’s-different-from-others-pros-cons" class="headerlink" title="How it’s different from others (pros/cons)"></a>How it’s different from others (pros/cons)</h2><h3 id="Why-it’s-a-good-bet"><a href="#Why-it’s-a-good-bet" class="headerlink" title="Why it’s a good bet ?"></a>Why it’s a good bet ?</h3><ul>
+<li>It’s the simplest to start with. Small learning curve(compared to React, Polymer)</li>
+<li>It brings no baggage. It is pure HTML and JS and you can use whatever you wish (just like basic HTML/JS code)</li>
+<li>Has a good and active community support <a href="https://gitter.im/riot/riot" target="_blank" rel="external">https://gitter.im/riot/riot</a></li>
+<li>Virtual DOM makes Absolutely the smallest possible amount of DOM updates and reflows<br>supports Server-side rendering of custom tags for universal (isomorphic) applications</li>
+<li>No proprietary event system</li>
+<li>Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or any pre-processor you want</li>
+</ul>
+<h3 id="What’s-not-so-good"><a href="#What’s-not-so-good" class="headerlink" title="What’s not so good ?"></a>What’s not so good ?</h3><ul>
+<li>The diffing leaves much desired in terms of performance (when compared to React). This affects overall performances in some specific scenarios.(like listing and an item changing)<br>Having said that - v3.0 is having plenty of focus on optimizations and needs to be examined for changes in that.</li>
+</ul>
+<h2 id="Can’t-follow-What-is-RiotJS-specifically"><a href="#Can’t-follow-What-is-RiotJS-specifically" class="headerlink" title="Can’t follow. What is RiotJS specifically ?"></a>Can’t follow. What is RiotJS specifically ?</h2><p>Simply put, it’s a framework that makes it possible to build your view layer in a block by block fashion, where you can build different reusable components and build views composed of them.<br>(just like html markup has header, body, footer - riot extends that to any level of developer’s desire). Look at the github repo code (below) for a better visualization.</p>
+<h2 id="RiotJS-as-explained-by-community"><a href="#RiotJS-as-explained-by-community" class="headerlink" title="RiotJS as explained by community"></a><a href="http://riotjs.com/" target="_blank" rel="external">RiotJS as explained by community</a></h2><p>A starter course on <a href="https://www.youtube.com/watch?v=rAqHuEv3r8w7" target="_blank" rel="external">Youtube</a></p>
+<p>The Code I use to explain the setup</p>
+<p>The code I’m using is at <a href="https://github.com/saurshaz/riotjs-brief-introduction" target="_blank" rel="external">github</a><br>Feel free to extend the chain</p>
+<p>What does a Riot component look like ?</p>
+<p>It can be described in a tag file. <code>Webpack</code> does the magic of reading the tag file material and compiling as a riot component. You can now use this component in any HTML file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&apos;use strict&apos;;</div><div class="line">// use any library or custom code</div><div class="line">const g = require(&apos;../lib/gravatar&apos;)</div><div class="line">&lt;gravatar&gt;</div><div class="line">  &lt;!-- use events binding just like normal HTML markup	--&gt;</div><div class="line">  &lt;!-- use style classes just like normal HTML markup	--&gt;</div><div class="line">  &lt;a onclick=&quot;&#123;handleClick&#125;&quot; target=&quot;_blank&quot; class=&quot;meet&quot;&gt;</div><div class="line">    &lt;img src=&#123;url&#125;</div><div class="line">         width=&quot;&#123;this.opts.size || 200&#125;&quot;</div><div class="line">         height=&quot;&#123;this.opts.size || 200&#125;&quot;&gt;</div><div class="line">  &lt;/a&gt;</div><div class="line">  &lt;pre&gt;</div><div class="line">  	&lt;!-- binding data from script in markup	--&gt;</div><div class="line">    &#123;this.opts.email || this.email&#125;</div><div class="line">  &lt;/pre&gt;</div><div class="line">  &lt;style&gt;</div><div class="line">    .meet &#123;</div><div class="line">      display: inline-block;</div><div class="line">      padding: 1em;</div><div class="line">      text-align: center;</div><div class="line">    &#125;</div><div class="line">    .meet img &#123;</div><div class="line">      background-color: rgb(211, 211, 211);</div><div class="line">      border: 5px solid rgb(255, 255, 255);</div><div class="line">      border-radius: 100%;</div><div class="line">      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 7px;</div><div class="line">      margin: auto;</div><div class="line">    &#125;</div><div class="line">  &lt;/style&gt;</div><div class="line">  &lt;script&gt;</div><div class="line">    this.handleClick = (e) =&gt; &#123;</div><div class="line">      alert(&apos;handled a click event&apos;)</div><div class="line">    &#125;</div><div class="line">    this.on(&apos;mount&apos;, () =&gt; &#123;</div><div class="line">      this.email = this.opts.email || &apos;saurshaz@gmail.com&apos;</div><div class="line">      const options =  &#123;size: this.opts.size ||  200, rating: &quot;pg&quot;, backup: &quot;retro&quot;, secure: true&#125;</div><div class="line">      this.url = g.gravatar(this.email, options)</div><div class="line">      this.update()</div><div class="line">    &#125;)</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/gravatar&gt;</div></pre></td></tr></table></figure>
+<p>Presented here is a <code>gravatar</code> component built using RiotJS<br>Superpowers covered in this small snippet above (if you look carefully) are :-</p>
+<p>use any library or custom code (using a custom code <code>gravatar.js</code> here by simply importing)<br>use events binding just like normal HTML markup (<code>onclick</code> in markup and <code>this.&lt;function_name&gt;</code> in script section)<br>use style classes just like normal HTML markup (good old <code>class=&lt;classname&gt;</code> syntax)<br>binding data from script in markup (look at <code>this.url</code> and <code>this.email</code> in script part)<br>scoped style (good old <style> syntax)<br>passing attributes(<code>this.opts.&lt;property_name&gt;</code> lets access to passed property from the index.html)<br>events handling (<code>this.handleClick</code> shows the simple standard usage)</p>
+<h2 id="What-else-is-needed"><a href="#What-else-is-needed" class="headerlink" title="What else is needed ?"></a>What else is needed ?</h2><p>In addition to the above snippet, some tooling needed for this to be usable in a HTML markup is just <code>webpack</code> magic with <code>babel-loader</code> and <code>riotjs-loader</code> plugins</p>
+<p>Most things are self-explanatory in the structure of a riot tag. but basically there are 2 parts -</p>
+<ol>
+<li>markup &amp;</li>
+<li>script part</li>
+</ol>
+<p>Anything associated under this in the script instance is automatically available for the markup part.<br>Imp Note :: Any runtime changes in <code>this.&lt;property_name&gt;</code> changes need a <code>this.update()</code> to make the changes synced.</p>
+<p>Other than this - understanding on <code>RiotJS</code> events &amp; LifeCycle is something worth understanding. but All in All - <code>RiotJS</code> is a breeze to work in. Highly recommended simply for its simplicity and small learning curve.</p>
+<p>The cheatsheet <a href="http://ricostacruz.com/cheatsheets/riot.html">here</a> is a must have on your desk if you’re sold on Riot by now.</p>
+</style></p>
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/2016/11/27/riotjs-a-brief-introduction/" class="article-date">
+  <time datetime="2016-11-27T08:47:30.000Z" itemprop="datePublished">2016-11-27</time>
+</a>
+
+        </li>
+        
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/2016/11/27/create-tabular-views-fast/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Create Tabular Views Fast
+        
+      </div>
+    </a>
+  
+  
+    <span id="article-nav-older" class="article-nav-link-wrap older"></span>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Fusce eget urna vitae velit <em>eleifend interdum at ac nisi. In nec ligula lacus. Cum sociis natoque</em> penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu cursus erat, ut dapibus quam. Post</p>
+
+
+      </div>
+    </footer>
+
+      
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  </body>
+</html>
