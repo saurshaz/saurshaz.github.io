@@ -14,7 +14,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 <meta property="og:description" content="Source
 IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possible unit of execution in any functional natured programming language. A stateless function has existed as a statele">
 <meta property="og:image" content="https://i.gyazo.com/29b3d3f55b912340c3bc0e5e4e005cf5.png">
-<meta property="og:updated_time" content="2016-11-27T11:39:24.000Z">
+<meta property="og:updated_time" content="2016-11-27T11:44:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting started with aws lambda">
 <meta name="twitter:description" content="Source
@@ -46,7 +46,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
   </nav>
   <nav id="sub-nav">
     
-      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
     
   </nav>
 </header>
@@ -77,37 +77,11 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 <h2 id="Beginning-your-AWS-Setup"><a href="#Beginning-your-AWS-Setup" class="headerlink" title="Beginning your AWS Setup"></a>Beginning your AWS Setup</h2><p>The best place to head is <a href="http://docs.aws.amazon.com/lambda/latest/dg/setting-up.html" target="_blank" rel="external">AWS Documentation</a>. Since It’s an entire topic in itself - I’d not mistake trying to cover that here</p>
 <ul>
 <li><p><a href="http://prokriya.us/2016/11/09/Getting-started-with-AWS-IAM/">setup AWS IAM role</a><br>– make sure you select Lambda service access for this role<br>– create a new <code>~/.aws/credentials</code> file (if one is not already present)<br>– Put in you access key and security key in there (like below)</p>
-<pre><code>| ----- |
-</code></pre><p>  |</p>
-<pre><code>1
-</code></pre><p>  2</p>
-<p>  3</p>
-<p>|</p>
-<pre><code>[default]
-</code></pre><p>  aws_access_key_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-<p>  aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
-<p>|</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">       [default]</div><div class="line"></div><div class="line">aws_access_key_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXX</div><div class="line"></div><div class="line">aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>`</p>
 <p>– Copy the path starting with <code>arn://</code> (role url) for your newly created role into your <code>lambdaenv.json</code> file in the root directory of the example project. It will look like below.</p>
-<p>| —– |<br>|</p>
-<pre><code>    1
-
-2
-
-3
-
-4
-</code></pre><p> |</p>
-<pre><code>    {
-
-    &quot;Role&quot; : &quot;arn:aws:iam::XXXXXXXXXX:role/XXXXXXX&quot;,
-
-    &quot;Region&quot; : &quot;eu-west-1&quot;
-
-}
-</code></pre><p> |</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    &#123;</div><div class="line"></div><div class="line">	&quot;Role&quot; : &quot;arn:aws:iam::XXXXXXXXXX:role/XXXXXXX&quot;,</div><div class="line"></div><div class="line">	&quot;Region&quot; : &quot;eu-west-1&quot;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>Now the example project has the lambda function logic contained within <code>src/index.js</code> file. Feel free to change it once it is seen working</li>
 <li>What is now needed is to push the code sitting on your system onto AWS cloud (to be available to be executed as desired, on demand). <code>gulp deploy</code> does that. The <code>gulpfile.js</code> is the gulp file which has a lot of tasks. the <code>deploy</code> one meant for this purpose only(sending code over to AWS lambda infrastructure)</li>
@@ -123,8 +97,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 <li>Lambda function deployment package size (.zip/.jar file) 50 MB</li>
 <li>Size of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) 250 MB<br><a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank" rel="external"> AWS limitations </a></li>
 </ul>
-<h3 id="More-References"><a href="#More-References" class="headerlink" title="More References"></a>More References</h3><p>  </p>
-
+<h3 id="More-References"><a href="#More-References" class="headerlink" title="More References"></a>More References</h3>
       
     </div>
     <footer class="article-footer">
@@ -147,7 +120,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
 <nav id="article-nav" class="article-nav">
   
     <a href="/2016/11/27/getting-Started-with-Blogging-in-MarkDown-with-Hexo/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           Getting Started with Blogging in MarkDown with Hexo
@@ -157,7 +130,7 @@ IaaS, PaaS, SaaS and now FaaS ?A Function would probably be the smallest possibl
   
   
     <a href="/2016/11/27/getting-started-with-serverless/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">Getting Started With Serverless</div>
     </a>
   
