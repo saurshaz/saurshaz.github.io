@@ -1,0 +1,684 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RiotJS, A Brief Description">
+<meta property="og:url" content="http://prokriya.us/archives/2016/11/27/riotjs-a-brief-introduction/index.html">
+<meta property="og:site_name" content="Proactivity">
+<meta property="og:description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+<meta property="og:updated_time" content="2016-11-27T11:40:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RiotJS, A Brief Description">
+<meta name="twitter:description" content="What is RiotJS ?Small AnswerAnother front-end framework for building your view layer (just like React and Polymer)
+More Comprehensive AnswerSo, if you are a web developer working on front-end - In all">
+<meta name="twitter:creator" content="@saurshaz">
+<link rel="publisher" href="saurshaz">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://prokriya.us/archives/2016/11/27/riotjs-a-brief-introduction/"/>
+
+
+
+
+
+  <title> RiotJS, A Brief Description | Proactivity </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87139165-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Proactivity</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Progressive Thoughts</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://prokriya.us/archives/2016/11/27/riotjs-a-brief-introduction/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="saurshaz">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Proactivity">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Proactivity" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                RiotJS, A Brief Description
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T14:17:30+05:30">
+                2016-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="What-is-RiotJS"><a href="#What-is-RiotJS" class="headerlink" title="What is RiotJS ?"></a>What is RiotJS ?</h2><h2 id="Small-Answer"><a href="#Small-Answer" class="headerlink" title="Small Answer"></a>Small Answer</h2><p>Another front-end framework for building your view layer (just like <a href="https://github.com/facebook/react/" target="_blank" rel="external">React</a> and <a href="http://www.polymer-project.org/" target="_blank" rel="external">Polymer</a>)</p>
+<h2 id="More-Comprehensive-Answer"><a href="#More-Comprehensive-Answer" class="headerlink" title="More Comprehensive Answer"></a>More Comprehensive Answer</h2><p>So, if you are a web developer working on front-end - In all probabilty - there are way too many frameworks you would’ve seen (or even worked upon)<br>There are MVVM/MVC frameworks like BackboneJS, Knockout, spine, Angular, VueJS and many others.</p>
+<p>Most of these manage the entire part of the front-end stack - The Javascript logic as well as the templating and routing (Angular does a bit more, in fact a little too much for certain pro’s likings)</p>
+<p>However, there are a second type of frameworks (those that focus only on view layer management)<br>Off late have appeared a components based views building ideology with <a href="http://webcomponents.org/" target="_blank" rel="external">web components</a> and frameworks like Polymer endorsed that concept beautifully.</p>
+<p>Then came the revolution with Facebook taking an aggressive open-source rout starting with React. Why this is termed as a revolution is because of the community &amp; adoption rates it has built in such a short period. The philosophy with React too has been modular view building. However the approach has differed with the DOM manipulations always going through <a href="http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/" target="_blank" rel="external">Virtual-DOM</a>.</p>
+<p>So, Riot is again a view managing framework that builds on concepts popularised by both Polymer and React.<br>It takes a midway between the Polymer and React paths.<br>It follows a more polymer component like syntax (which is music to eyes full of JSX experience).<br>But for DOM manipulations it goes a Virtual DOM route(like React) with a different diffing engine(open-sourced) and much smaller than React’s.</p>
+<h2 id="How-it’s-different-from-others-pros-cons"><a href="#How-it’s-different-from-others-pros-cons" class="headerlink" title="How it’s different from others (pros/cons)"></a>How it’s different from others (pros/cons)</h2><h3 id="Why-it’s-a-good-bet"><a href="#Why-it’s-a-good-bet" class="headerlink" title="Why it’s a good bet ?"></a>Why it’s a good bet ?</h3><ul>
+<li>It’s the simplest to start with. Small learning curve(compared to React, Polymer)</li>
+<li>It brings no baggage. It is pure HTML and JS and you can use whatever you wish (just like basic HTML/JS code)</li>
+<li>Has a good and active community support <a href="https://gitter.im/riot/riot" target="_blank" rel="external">https://gitter.im/riot/riot</a></li>
+<li>Virtual DOM makes Absolutely the smallest possible amount of DOM updates and reflows<br>supports Server-side rendering of custom tags for universal (isomorphic) applications</li>
+<li>No proprietary event system</li>
+<li>Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or any pre-processor you want</li>
+</ul>
+<h3 id="What’s-not-so-good"><a href="#What’s-not-so-good" class="headerlink" title="What’s not so good ?"></a>What’s not so good ?</h3><ul>
+<li>The diffing leaves much desired in terms of performance (when compared to React). This affects overall performances in some specific scenarios.(like listing and an item changing)<br>Having said that - v3.0 is having plenty of focus on optimizations and needs to be examined for changes in that.</li>
+</ul>
+<h2 id="Can’t-follow-What-is-RiotJS-specifically"><a href="#Can’t-follow-What-is-RiotJS-specifically" class="headerlink" title="Can’t follow. What is RiotJS specifically ?"></a>Can’t follow. What is RiotJS specifically ?</h2><p>Simply put, it’s a framework that makes it possible to build your view layer in a block by block fashion, where you can build different reusable components and build views composed of them.<br>(just like html markup has header, body, footer - riot extends that to any level of developer’s desire). Look at the github repo code (below) for a better visualization.</p>
+<h2 id="RiotJS-as-explained-by-community"><a href="#RiotJS-as-explained-by-community" class="headerlink" title="RiotJS as explained by community"></a><a href="http://riotjs.com/" target="_blank" rel="external">RiotJS as explained by community</a></h2><p>A starter course on <a href="https://www.youtube.com/watch?v=rAqHuEv3r8w7" target="_blank" rel="external">Youtube</a></p>
+<p>The Code I use to explain the setup</p>
+<p>The code I’m using is at <a href="https://github.com/saurshaz/riotjs-brief-introduction" target="_blank" rel="external">github</a><br>Feel free to extend the chain</p>
+<p>What does a Riot component look like ?</p>
+<p>It can be described in a tag file. <code>Webpack</code> does the magic of reading the tag file material and compiling as a riot component. You can now use this component in any HTML file.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&apos;use strict&apos;;</div><div class="line">// use any library or custom code</div><div class="line">const g = require(&apos;../lib/gravatar&apos;)</div><div class="line">&lt;gravatar&gt;</div><div class="line">  &lt;!-- use events binding just like normal HTML markup	--&gt;</div><div class="line">  &lt;!-- use style classes just like normal HTML markup	--&gt;</div><div class="line">  &lt;a onclick=&quot;&#123;handleClick&#125;&quot; target=&quot;_blank&quot; class=&quot;meet&quot;&gt;</div><div class="line">    &lt;img src=&#123;url&#125;</div><div class="line">         width=&quot;&#123;this.opts.size || 200&#125;&quot;</div><div class="line">         height=&quot;&#123;this.opts.size || 200&#125;&quot;&gt;</div><div class="line">  &lt;/a&gt;</div><div class="line">  &lt;pre&gt;</div><div class="line">  	&lt;!-- binding data from script in markup	--&gt;</div><div class="line">    &#123;this.opts.email || this.email&#125;</div><div class="line">  &lt;/pre&gt;</div><div class="line">  &lt;style&gt;</div><div class="line">    .meet &#123;</div><div class="line">      display: inline-block;</div><div class="line">      padding: 1em;</div><div class="line">      text-align: center;</div><div class="line">    &#125;</div><div class="line">    .meet img &#123;</div><div class="line">      background-color: rgb(211, 211, 211);</div><div class="line">      border: 5px solid rgb(255, 255, 255);</div><div class="line">      border-radius: 100%;</div><div class="line">      box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 7px;</div><div class="line">      margin: auto;</div><div class="line">    &#125;</div><div class="line">  &lt;/style&gt;</div><div class="line">  &lt;script&gt;</div><div class="line">    this.handleClick = (e) =&gt; &#123;</div><div class="line">      alert(&apos;handled a click event&apos;)</div><div class="line">    &#125;</div><div class="line">    this.on(&apos;mount&apos;, () =&gt; &#123;</div><div class="line">      this.email = this.opts.email || &apos;saurshaz@gmail.com&apos;</div><div class="line">      const options =  &#123;size: this.opts.size ||  200, rating: &quot;pg&quot;, backup: &quot;retro&quot;, secure: true&#125;</div><div class="line">      this.url = g.gravatar(this.email, options)</div><div class="line">      this.update()</div><div class="line">    &#125;)</div><div class="line">  &lt;/script&gt;</div><div class="line">&lt;/gravatar&gt;</div></pre></td></tr></table></figure>
+<p>Presented here is a <code>gravatar</code> component built using RiotJS<br>Superpowers covered in this small snippet above (if you look carefully) are :-</p>
+<p>use any library or custom code (using a custom code <code>gravatar.js</code> here by simply importing)<br>use events binding just like normal HTML markup (<code>onclick</code> in markup and <code>this.&lt;function_name&gt;</code> in script section)<br>use style classes just like normal HTML markup (good old <code>class=&lt;classname&gt;</code> syntax)<br>binding data from script in markup (look at <code>this.url</code> and <code>this.email</code> in script part)<br>scoped style (good old <style> syntax)<br>passing attributes(<code>this.opts.&lt;property_name&gt;</code> lets access to passed property from the index.html)<br>events handling (<code>this.handleClick</code> shows the simple standard usage)</p>
+<h2 id="What-else-is-needed"><a href="#What-else-is-needed" class="headerlink" title="What else is needed ?"></a>What else is needed ?</h2><p>In addition to the above snippet, some tooling needed for this to be usable in a HTML markup is just <code>webpack</code> magic with <code>babel-loader</code> and <code>riotjs-loader</code> plugins</p>
+<p>Most things are self-explanatory in the structure of a riot tag. but basically there are 2 parts -</p>
+<ol>
+<li>markup &amp;</li>
+<li>script part</li>
+</ol>
+<p>Anything associated under this in the script instance is automatically available for the markup part.<br>Imp Note :: Any runtime changes in <code>this.&lt;property_name&gt;</code> changes need a <code>this.update()</code> to make the changes synced.</p>
+<p>Other than this - understanding on <code>RiotJS</code> events &amp; LifeCycle is something worth understanding. but All in All - <code>RiotJS</code> is a breeze to work in. Highly recommended simply for its simplicity and small learning curve.</p>
+<p>The cheatsheet <a href="http://ricostacruz.com/cheatsheets/riot.html">here</a> is a must have on your desk if you’re sold on Riot by now.</p>
+</style></p>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/27/create-tabular-views-fast/" rel="prev" title="Create Tabular Views Fast">
+                Create Tabular Views Fast <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="saurshaz" />
+          <p class="site-author-name" itemprop="name">saurshaz</p>
+          <p class="site-description motion-element" itemprop="description">Prior to Future happens</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/saurshaz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/saurshaz" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/archives" title="Blog" target="_blank">Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/saurshaz" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-RiotJS"><span class="nav-number">1.</span> <span class="nav-text">What is RiotJS ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Small-Answer"><span class="nav-number">2.</span> <span class="nav-text">Small Answer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-Comprehensive-Answer"><span class="nav-number">3.</span> <span class="nav-text">More Comprehensive Answer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-it’s-different-from-others-pros-cons"><span class="nav-number">4.</span> <span class="nav-text">How it’s different from others (pros/cons)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-it’s-a-good-bet"><span class="nav-number">4.1.</span> <span class="nav-text">Why it’s a good bet ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-not-so-good"><span class="nav-number">4.2.</span> <span class="nav-text">What’s not so good ?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can’t-follow-What-is-RiotJS-specifically"><span class="nav-number">5.</span> <span class="nav-text">Can’t follow. What is RiotJS specifically ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RiotJS-as-explained-by-community"><span class="nav-number">6.</span> <span class="nav-text">RiotJS as explained by community</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">saurshaz</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

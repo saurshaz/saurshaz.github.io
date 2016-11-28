@@ -1,0 +1,690 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Source
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)">
+<meta property="og:url" content="http://prokriya.us/archives/2016/11/27/getting-started-using-SnS-to-connect-lambdas/index.html">
+<meta property="og:site_name" content="Proactivity">
+<meta property="og:description" content="Source
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
+<meta property="og:image" content="https://i.gyazo.com/90f558c4ae185c4982151c9ef3822fd2.png">
+<meta property="og:updated_time" content="2016-11-27T11:58:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)">
+<meta name="twitter:description" content="Source
+This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the ex">
+<meta name="twitter:image" content="https://i.gyazo.com/90f558c4ae185c4982151c9ef3822fd2.png">
+<meta name="twitter:creator" content="@saurshaz">
+<link rel="publisher" href="saurshaz">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://prokriya.us/archives/2016/11/27/getting-started-using-SnS-to-connect-lambdas/"/>
+
+
+
+
+
+  <title> Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas) | Proactivity </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87139165-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Proactivity</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Progressive Thoughts</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://prokriya.us/archives/2016/11/27/getting-started-using-SnS-to-connect-lambdas/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="saurshaz">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Proactivity">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Proactivity" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Getting Started Using SnS To Connect Lambdas (use SnS to connect lambdas)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T15:18:06+05:30">
+                2016-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://prokriya.us/2016/11/13/Getting-started-using-SnS-to-connect-lambdas/" title="Permalink to Getting started with AWS SNS (use SnS to connect lambdas)">Source</a></p>
+<p>This post covers an introduction AWS Simple Notification Service (AWS SNS). It will cover (as an example) the was SNS can be used to connect two different lambdas and how one can trigger the execution of the second lambda.</p>
+<p><a href="http://prokriya.us/2016/11/10/Getting-started-with-aws-lambda/">_aws-lambda getting started &amp; example</a>_</p>
+<hr>
+<h2 id="What-is-AWS-SNS"><a href="#What-is-AWS-SNS" class="headerlink" title="What is AWS SNS ?"></a>What is AWS SNS ?</h2><p>Best described <a href="https://aws.amazon.com/sns/" target="_blank" rel="external">here</a> as <code>Fully managed and highly scalable push messaging</code>. I have understood(being a developer) as - <code>It is the good old</code>pub-sub<code>for your AWS infrastructure services</code>. What works for SNS as a lucrative offering is -</p>
+<ul>
+<li>It is AWS offering</li>
+<li>It is incredibly cheap for your next app. <code>Your first 1 million Amazon SNS requests per month are free, then it costs $0.50 per 1 million Amazon SNS requests thereafter.</code></li>
+<li>Much needed <code>pub-sub</code> glue for different AWS infrastructure services</li>
+<li>Also usable for Push notifications (we’ll cover this in [SNS part two][3])</li>
+</ul>
+<p>Serverless is an MIT open-source project, actively maintained by a vibrant and engaged community of developers.<br><a href="https://serverless.com/framework/" title="Permalink to Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more" target="_blank" rel="external">AWS Lambda</a></p>
+<p>Serverless is tragetting a broader vision/concept - to become a framework for different FaaS providers (not just AWS Lambda)</p>
+<p>Serverless Framework - Build applications on AWS Lambda, Google CloudFunctions, Azure Functions, AWS Flourish and more</p>
+<p>For more verbose information on <a href="http://prokriya.us/2016/11/09/Getting-started-with-serverless/">Serverless</a></p>
+<h3 id="The-Code-I-use-to-explain-the-setup"><a href="#The-Code-I-use-to-explain-the-setup" class="headerlink" title="The Code I use to explain the setup"></a>The Code I use to explain the setup</h3><p>The code I’m using is at <a href="https://github.com/saurshaz/serverless-sns-lambda-chaining" target="_blank" rel="external">github</a><br>This is mostly work altready done by at<br>Feel free to extend the chain</p>
+<h2 id="Steps-to-using-SNS-AWS-Lambdas-with-serverless"><a href="#Steps-to-using-SNS-AWS-Lambdas-with-serverless" class="headerlink" title="Steps to using SNS + AWS Lambdas with serverless"></a>Steps to using SNS + AWS Lambdas with serverless</h2><ul>
+<li>install serverless globally <code>npm i -g serverless</code><br>Make sure that you use Serverless v1.(have serverless installed globally)<br>Stay on Node version 4.3</li>
+</ul>
+<ol>
+<li>Run <code>serverless install --url https://github.com/saurshaz/serverless-sns-lambda-chaining</code> to install the service in your current working directory</li>
+<li>Next up cd into the service with <code>cd serverless-sns-lambda-chaining</code></li>
+<li>Run <code>npm install</code></li>
+<li>Copy <code>.env.sample</code> into <code>.env</code>. Replace the <code>ACCOUNT_ID</code> in the <code>.env</code> file with your AWS account id</li>
+<li>Deploy with <code>serverless deploy</code></li>
+<li>Invoke the first function via the endpoint (you’ll see the endpoint in terminal, when deploying)</li>
+<li>Notice cloudwatch logs to verify second lambda also gets invoked. that happened via SNS</li>
+</ol>
+<p>Logs will show something like this - <img src="https://i.gyazo.com/90f558c4ae185c4982151c9ef3822fd2.png" alt="image"></p>
+<h2 id="Any-Limitations"><a href="#Any-Limitations" class="headerlink" title="Any Limitations ?"></a>Any Limitations ?</h2><p>Well, AWS Lambda is pretty flexible and allows you to explore any code capable logic uploaded and running on AWS. However, it expects the functions to be under a specific size</p>
+<h4 id="AWS-Lambda-Deployment-Limits"><a href="#AWS-Lambda-Deployment-Limits" class="headerlink" title="AWS Lambda Deployment Limits"></a>AWS Lambda Deployment Limits</h4><ul>
+<li>Lambda function deployment package size (.zip/.jar file) 50 MB</li>
+<li>Size of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) 250 MB<br><a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html" target="_blank" rel="external"> AWS limitations </a></li>
+</ul>
+<p>[3]:</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/27/create-tabular-views-fast/" rel="next" title="Create Tabular Views Fast">
+                <i class="fa fa-chevron-left"></i> Create Tabular Views Fast
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/27/getting-started-using-SnS-to-send-push-notifications/" rel="prev" title="Getting Started Using SnS To Send Push Notifications (use SnS for push notifications)">
+                Getting Started Using SnS To Send Push Notifications (use SnS for push notifications) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="saurshaz" />
+          <p class="site-author-name" itemprop="name">saurshaz</p>
+          <p class="site-description motion-element" itemprop="description">Prior to Future happens</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/saurshaz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/saurshaz" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="/archives" title="Blog" target="_blank">Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/saurshaz" title="GitHub" target="_blank">GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-AWS-SNS"><span class="nav-number">1.</span> <span class="nav-text">What is AWS SNS ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Code-I-use-to-explain-the-setup"><span class="nav-number">1.1.</span> <span class="nav-text">The Code I use to explain the setup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps-to-using-SNS-AWS-Lambdas-with-serverless"><span class="nav-number">2.</span> <span class="nav-text">Steps to using SNS + AWS Lambdas with serverless</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Any-Limitations"><span class="nav-number">3.</span> <span class="nav-text">Any Limitations ?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AWS-Lambda-Deployment-Limits"><span class="nav-number">3.0.1.</span> <span class="nav-text">AWS Lambda Deployment Limits</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">saurshaz</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
